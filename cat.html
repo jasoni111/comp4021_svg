@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<style>
+    body {
+        background-color: black;
+
+    }
+
+    .cat {
+        fill: #0084f7;
+        box-shadow: 10px 5px 5px red;
+        position: relative;
+        z-index: 10;
+
+    }
+</style>
+
+<head>
+
+</head>
+
+<body>
+    <svg width="640" height="480" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+        <filter id="white-glow">
+            <feFlood result="flood" flood-color="#ffffff" flood-opacity="3"></feFlood>
+            <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
+            <feMorphology in="mask" result="dilated" operator="dilate" radius="20"></feMorphology>
+            <feGaussianBlur in="dilated" result="blurred" stdDeviation="8"></feGaussianBlur>
+
+            <feGaussianBlur in="SourceGraphic" result="source_blurred" stdDeviation="2"></feGaussianBlur>
+            <feMerge>
+                <feMergeNode in="blurred"></feMergeNode>
+                <feMergeNode in="source_blurred"></feMergeNode>
+            </feMerge>
+        </filter>
+
+        <g class="cat" filter="url(#white-glow)" transform="scale(0.18 0.18)    translate(-65 125)">
+            <g>
+                <title>Layer 1</title>
+                <path
+                    d="m123,366c3,-25 1.75,-43.75 3.5,-52.5c1.75,-8.75 9.83333,9.33333 22,-31.5c12.16667,-40.83333 1.33333,-63.66667 13,-103.5l-25,-49.5l-11,-20l-24,-18l-5,-61l11,-1l13,58l22,23l32,36c7.66667,9.16667 10.16667,0.83333 26.5,16c16.33333,15.16667 189.66667,-18.66667 284,-3l52.5,-38l9,38l16,11.33333l11.33333,29.33334l12,13.66666c-5.33333,7 -8.66666,11 -17.66666,17.66667c-9,6.66667 -22.66667,-4.66667 -37.66667,-9l-36,28l48.33333,107c4,0.11111 6.88889,-2.72223 12,0.33333c5.11111,3.05556 11.22223,6.11111 12.33334,13.66667l-0.66667,9c-10.66667,-0.33333 -34.5,2 -34,-7.5c0.5,-9.5 -75.5,-82 -70,-95.5l-25,6c-9.66667,31.33333 -23.33333,66.66667 -33,98c5.44444,2.55556 12.88889,0.61111 16.33333,7.66667c3.44444,7.05556 -1.66666,7.66666 -10.33333,11.66666c-8.66667,4 -15.33333,-6.66667 -24,-17l9,-100.33333c-33.33333,-5.33333 -95.66667,-1.66667 -134,11l3,43l17,27l30,21c4.33333,1.33333 -0.41667,-1.66667 13,4c13.41667,5.66667 4.58333,13.58333 -4,20l-13,-1l-67,-53l-35.5,-59c-20.75,5.41667 -18,15.33333 -44.25,31.75l-19.75,10.75l-1.75,16.75l2.75,25.25c4.08333,0 15.75,9.41667 18.5,15c2.75,5.58333 -7.5,7.16667 -20.5,6.5l-15.75,-19 Z">
+                </path>
+                <animate attributeName="display" values="inline;none;none" dur="0.4s" repeatCount="indefinite" />
+            </g>
+
+            <g>
+                <title>Layer 2</title>
+                <path
+                    d="m185.6,164.8c90.33333,-15 205.06667,-2.13333 295.4,-4.8l58,-40l8,42l20,9l8,29l12,14l-23,23l-29,-16l-32,16l-8,13l34,83l1,18c-3.55556,5.22222 -4.77778,13.11111 -10.66667,15.66667c-5.88889,2.55556 -8.66666,-3 -12.33333,-5.66667l7,-14l-26,-27l-3,68l15,3l9,7l-9,11c-8,-1 -12,-1.66667 -24,-3c-12,-1.33333 -26,-77.33333 -39,-116c-66.33333,9 -120.33333,-5.66667 -181,3l5,36l22,31l48,26l13.33333,11.33333c5.88889,6.77778 -1.44444,9.11111 -10.66666,12c-9.22222,2.88889 -61.77778,-33.55555 -92.66667,-50.33333l-15,-46l-28,-17l-59.66667,27.66667l-30,38.33333l5.66667,16c3.66667,4.88889 10.33333,10.88889 11,14.66667c0.66667,3.77778 -4.66667,8.22222 -7,12.33333l-27.33333,-24l19.33333,-82l36,-43l12,-79l-32.8,-109.8l-57.2,-36.2l17,-8l57,36c4,18.4 8,36.8 12,55.2l22.4,38.8">
+                </path>
+                <animate attributeName="display" values="none;inline;none" dur="0.4s" repeatCount="indefinite" />
+            </g>
+
+            <g>
+                <title>Layer 3</title>
+                <path
+                    d="m211.5,163.5l270.5,-5l54.5,-38l14,40l13,11.5l10,25l13,16l-23,20.5l-34,-12.5l-28.5,28.5l48,63.5c1.5,6.5 8.21428,11.95238 4.5,19.5c-3.71428,7.54762 -6,14.80952 -12,17.5l-6.85714,-2.71429c-2.14286,-3.5 0.28571,-16.14285 3,-23.07142l-89.42857,-41.71429l-9.71429,99.5l15,4.5c0,0 -3.5,7.5 -3,8c0.5,0.5 -16.5,-1 -16.5,-1c0,0 -14.5,-12.5 -14.5,-12.5c0,0 -21.7,-90.3 -20.5,-95.5c1.2,-5.2 -166.78571,-15.15714 -163.08571,-8.67143c3.7,6.48571 -20.47143,51.92857 -21.61429,53.07143c-1.14286,1.14286 17.7,43.1 17.7,43.1c0,0 15,13 15,12.5c0,-0.5 0,10 0,10c0,0 -16.5,0 -16.5,0c0,0 -37.5,-52.5 -37.5,-52.5c0,0 -4.5,-17.5 2.5,-30c7,-12.5 -30,18 -30,18c0,0 -16.5,14 -16,22c0.5,8 -2.25,28.75 0.5,33.25c2.75,4.5 8,0 10.5,1.25c2.5,1.25 5.25,8.75 2,12c-3.25,3.25 -25,-2.5 -25,-2.5c0,0 -13.5,-92 -2.75,-97.75c10.75,-5.75 11.75,-39.25 11.75,-39.25c0,0 14,-78 14,-78c0,0 -21.5,-53.5 -21.5,-53.5c0,0 -11.5,-29.5 -11.5,-29.5c0,0 -51,-67.5 -51,-67.5c0,0 16,-12.5 16,-12.5c0,0 45.5,68.5 45.5,68.5c0,0 36.5,59.5 36.5,59.5 Z">
+                </path>
+                <animate attributeName="display" values="none;none;inline" dur="0.4s" repeatCount="indefinite" />
+            </g>
+
+        </g>
+        <!-- <path d="M 10 10 H 90 V 90 H 10 L 10 10"  fill="transparent" stroke="black"/> -->
+        <!-- <path d="M 0 415 H 400"  fill="transparent" stroke="white" ></path> -->
+        <!-- <path d="M 60 0 V 400"  fill="transparent" stroke="white" ></path> -->
+
+        <path d="M 0 100 H 400"  fill="transparent" stroke="white" ></path>
+        <path d="M 100 0 V 400"  fill="transparent" stroke="white" ></path>
+        <!-- <path d="M 0 420 H 400"  fill="transparent" stroke="white" ></path> -->
+        <!-- <path d="M 600 0 V 400"  fill="transparent" stroke="white" ></path> -->
+
+
+                
+        <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+
+    </svg>
+
+    <!-- <svg  viewBox="0 0 400 400">
+        <g class="cat">
+            <!-- <path d="M 200 80 C 20 20, 40 20, 50 10 Z" stroke="white" fill="transparent"/> -->
+    <!-- <path d="M 200 80 H 150 C 160 60, 190 60, 200 80 Z" stroke="white" fill="transparent"/> -->
+
+    <!-- <g  transform="scale(2 2)">  -->
+    <!-- transform="matrix(2 0 0 2 0 0)" -->
+    <!-- transform = "matrix=(2 0 0 2 0 0)"> -->
+    <!-- filter="url(#blurMe") -->
+    <!-- <ellipse cx="200" cy="80" rx="10" ry="6"> -->
+    <ellipse cx="200" cy="80" rx="10" ry="6">
+        <!-- <animate attributeName="cx" values="200;150" dur="3s" repeatCount="indefinite" /> -->
+        <!-- <animateMotion path="M 200 80 H 150 C 160 60, 190 60, 200 80 Z" dur="3s" repeatCount="indefinite" />  -->
+    </ellipse>
+    <ellipse cx="180" cy="60" rx="10" ry="6" />
+
+    <!-- <ellipse cx="200" cy="80" rx="100" ry="50" filter="url(#blurMe")/>
+                <ellipse cx="200" cy="80" rx="100" ry="50" filter="url(#blurMe")/>
+                <ellipse cx="200" cy="80" rx="100" ry="50" filter="url(#blurMe")/> -->
+    <!-- </g> -->
+
+    </g>
+    <filter id="blurMe">
+        <feGaussianBlur stdDeviation="5" />
+    </filter>
+    </svg> -->
+</body>
+
+</html>

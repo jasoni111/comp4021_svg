@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="test.css">
+<script src="test.js"></script>
+
+<body>
+    <!-- <svg height="100" width="100">
+        <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+      </svg> -->
+    <!-- <div class="circle"></div> -->
+    <svg viewbox="0 0 200 200" height="100" width="100">
+        <filter id="white-glow">
+            <feFlood result="flood" flood-color="#0084f7" flood-opacity="1"></feFlood>
+            <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
+            <feMorphology in="mask" result="dilated" operator="dilate" radius="1"></feMorphology>
+            <feGaussianBlur in="dilated" result="blurred" stdDeviation="1"></feGaussianBlur>
+
+            <feGaussianBlur in="SourceGraphic" result="source_blurred" stdDeviation="1"></feGaussianBlur>
+            <feMerge>
+                <feMergeNode in="blurred"></feMergeNode>
+                <feMergeNode in="source_blurred"></feMergeNode>
+            </feMerge>
+        </filter>
+
+
+
+        <g transform="translate(100 100)" filter="url(#white-glow)">
+            <g>
+                <circle cx="0" cy="0" r="100" fill="transparent" stroke-width="3" stroke=white>
+
+                </circle>
+                <!-- 
+                    r*sqrt(2)
+                 -->
+                <g>
+                    <animateTransform attributeName="transform" type="rotate" values="0;360" dur="10s"
+                        repeatCount="indefinite" />
+                    <rect width="141.42" height="141.42" fill="transparent" stroke-width="2" stroke=white
+                        transform="translate(-70.71 -70.71)">
+
+                    </rect>
+                    <rect width="141.42" height="141.42" fill="transparent" stroke-width="2" stroke=white
+                        transform="rotate(30) translate(-70.71 -70.71)">
+
+                    </rect>
+                    <rect width="141.42" height="141.42" fill="transparent" stroke-width="2" stroke=white
+                        transform="rotate(60) translate(-70.71 -70.71)">
+
+                    </rect>
+                </g>
+                <!-- 141.42/2 -->
+                <circle cx="0" cy="0" r="79" fill="transparent" stroke-width="3" stroke=white>
+                </circle>
+                <g>
+                    <animateTransform attributeName="transform" type="rotate" values="0;-360" dur="15s"
+                    repeatCount="indefinite" />
+                    <polygon
+                        points="0.0 70.71067811865476 61.23724356957946 -35.35533905932736 -61.237243569579434 -35.355339059327406"
+                        fill="transparent" stroke-width="3" stroke=white />
+
+                        <polygon
+                        points="0.0 70.71067811865476 61.23724356957946 -35.35533905932736 -61.237243569579434 -35.355339059327406"
+                        fill="transparent" stroke-width="3" stroke=white transform="rotate(60)" />
+                </g>
+            </g>
+        </g>
+    </svg>
+
+    <!-- <svg viewBox="0 0 530 530" height="400" width="400">
+
+
+
+        <filter id="ghost_fire">
+
+
+            <feFlood in="SourceGraphic" result="flood" flood-color="rgba(0, 255, 255, 0.8)" flood-opacity="3"></feFlood>
+            <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
+            <feMorphology in="mask" result="dilated" operator="dilate" radius="30"></feMorphology>
+            <feGaussianBlur in="dilated" result="blurred" stdDeviation="20"></feGaussianBlur>
+
+            <feTurbulence x="0" y="0" baseFrequency="0.05" numOctaves="2" seed="3">
+                <animate attributeName="baseFrequency" dur=20s values="0.02;0.1;0.02" repeatCount="indefinite" />
+            </feTurbulence>
+            <feDisplacementMap in="SourceGraphic" out="dis" scale="30">
+                <animate attributeName="scale" dur=1.5s values="20;40;20" repeatCount="indefinite" />
+            </feDisplacementMap>
+            <feMorphology in="dis" result="dilated" operator="dilate" radius="1"></feMorphology>
+            <feGaussianBlur in="dis" out="result" stdDeviation="2" />
+
+
+
+            <feMerge>
+                <feMergeNode in="blurred"></feMergeNode>
+                <feMergeNode in="result"></feMergeNode>
+            </feMerge>
+        </filter>
+
+        <g z-index=10 filter="url(#ghost_fire)">
+            <animate attributeName="x" values="-20;20;-20" dur="10s" repeatCount="indefinite" />
+            <path style="fill:rgba(0, 255, 0, 0.37);" d="M456.693,307.136c4.736,111.344-90.336,201.792-201.792,201.792S53.125,418.576,53.125,307.136
+            c0,0-1.952-96.448,22.96-139.856c0,0,7.12,45.552,40.576,62.64s42.704,30.608,42.704,30.608S88.901,123.856,248.341,0
+            c0,0-15.664,63.344,17.792,88.256s45.552,67.616,42,98.224c0,0,33.456-24.208,24.912-81.136c0,0,46.272,28.464,44.128,172.96
+            c0,0,51.952-3.552,34.16-91.104C411.333,187.2,452.965,219.232,456.693,307.136z" />
+            <path style="fill:#0f0;" d="M148.997,400c0,0,8.4,113.728,115.664,109.856c0,0,90.464-1.296,96.288-98.864
+            c0,0-52,40.208-51.504-23.904c0.08-11.408,3.264-22.528,8.336-32.752c5.808-11.744,12.736-32.688,8.288-60.96
+            c0,0-12.768,55.584-42.656,28.432c-17.872-16.24-24.864-30.416-17.44-94.992c0,0-21.696,18.848-27.52,62.448
+            c-1.104,8.256-6.912,15.488-15.04,17.296c-8,1.776-17.856-1.568-25.28-22.032c0,0-16.8,24.448,9.04,83.856
+            c0,0,7.104,28.384-16.16,40.016S148.997,400,148.997,400z" />
+        </g>
+
+    </svg> -->
+</body>
+
+</html>

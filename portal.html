@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<!-- <link rel="stylesheet" href="test.css">
+<script src="test.js"></script> -->
+<style>
+    body {
+        background: #000;
+    }
+   
+</style>
+
+
+<body>
+
+    <svg viewbox="0 0 200 200" height="100" width="100">
+        <filter id="blue-glow">
+            <feFlood result="flood" flood-color="#0084f7" flood-opacity="1"></feFlood>
+            <feComposite in="flood" result="mask" in2="SourceGraphic" operator="in"></feComposite>
+            <feMorphology in="mask" result="dilated" operator="dilate" radius="3"></feMorphology>
+            <feGaussianBlur in="dilated" result="blurred" stdDeviation="0.3"></feGaussianBlur>
+
+            <feGaussianBlur in="SourceGraphic" result="source_blurred" stdDeviation="3"></feGaussianBlur>
+            <feMerge>
+                <feMergeNode in="blurred"></feMergeNode>
+                <feMergeNode in="source_blurred"></feMergeNode>
+            </feMerge>
+        </filter>
+
+        <g transform=" matrix(1 0 0 1 100 100) " filter="url(#blue-glow)" >
+            <g>
+                <circle cx="0" cy="0" r="100" fill="transparent" stroke-width="3" stroke=white>
+
+                </circle>
+            </g>
+        </g>
+
+
+
+
+    </svg>
+
+
+</body>
+
+</html>
